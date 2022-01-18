@@ -1,6 +1,6 @@
 import requests
 
-login = input('Введите логин:  ')
+login = input('Введите номер:  ')
 password= input('Введите пароль:  ')
 
 session = requests.Session()
@@ -27,9 +27,3 @@ if 'validation_sid' in response:
     response = auth(login, password, two_fa=True, code=code)   
 
 print(response)
-
-# Thanks,
-# Vk: https://vk.com/id266287518, https://vk.com/id230192963.
-
-# Written with love. By Alexey Kuznetsov.
-# Bug reports write here -> https://vk.me/id194861150 
