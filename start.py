@@ -23,7 +23,7 @@ response = auth(login, password)
 
 if 'validation_sid' in response:
     session.get("https://api.vk.com/method/auth.validatePhone", params={'sid': response['validation_sid'],'v': '5.131'})
-    response = auth(login, password) #Если включена двухфакторка:
+    response = auth(login, password) #Если включена двухфакторка, то попросит тебя потрогать код из смс04ки
     code = input('Введите код из смс:  ')
     response = auth(login, password, two_fa=True, code=code)   
 
