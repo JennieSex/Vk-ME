@@ -1,6 +1,7 @@
-import requests
+###Начало кода###
+import requests #Библиотеки
 
-login = input('Введите номер:  ')
+login = input('Введите номер:  ') #Авторизация в консольке
 password= input('Введите пароль:  ')
 
 session = requests.Session()
@@ -22,8 +23,9 @@ response = auth(login, password)
 
 if 'validation_sid' in response:
     session.get("https://api.vk.com/method/auth.validatePhone", params={'sid': response['validation_sid'],'v': '5.131'})
-    response = auth(login, password)
+    response = auth(login, password) #Если включена двухфакторка:
     code = input('Введите код из смс:  ')
     response = auth(login, password, two_fa=True, code=code)   
 
 print(response)
+###Конец кода###
